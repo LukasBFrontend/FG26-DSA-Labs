@@ -32,17 +32,37 @@ namespace DSA.Lab00
 
         public Player? FindHighestScore()
         {
-            // TODO:
-            // Return the player with the highest score.
-            // Return null when the collection is empty.
-            return null;
+            if (_players.Count == 0)
+            {
+                return null;
+            }
+
+            Player highestScoring = _players[0];
+
+            foreach(var player in _players)
+            {
+                if (!(player.Score > highestScoring.Score))
+                {
+                    continue;
+                }
+
+                highestScoring = player;
+            }
+            
+            return highestScoring;
         }
 
         public bool ContainsName(string name)
         {
-            // TODO:
-            // Return true when a player with exactly this name exists.
-            // Use case-sensitive comparison for this lab.
+            foreach(var player in _players)
+            {
+                if (player.Name != name)
+                {
+                    continue;
+                }
+
+                return true;
+            }
             return false;
         }
     }
