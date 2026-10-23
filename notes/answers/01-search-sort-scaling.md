@@ -25,8 +25,23 @@ Before changing anything, answer:
 #### 6. If the array becomes twice as large, what happens to the worst-case amount of work?
 *It becomes double the amount compared to previously.*
 
-### Checkpoint question
+### Task 5 — Observe scaling
+Run the console application several times:
 
+```bash
+dotnet run --project labs/01-search-sort-scaling/src/DSA.Lab01.App -c Release
+```
+
+Record what you observe. Exact timings will vary between machines and runs, so focus on the **pattern**, not the smallest number.
+
+| Input size | Linear search | Binary search | What changed? |
+| ---: | ---: | ---: | --- |
+| 10,000 | 12,08 us | 0,15 us | 1a 1b |
+| 100,000 | 46,13 us | 0,15 us | ~4a ~1b |
+| 1,000,000 | 429,36 us | 0,25 us | ~40a ~2b |
+
+
+### Checkpoint question
 
 #### Explain in one or two sentences why binary search requires ordered data:
 *Binary search discards one or the other half of a collection based off the assumption that all values are either greater than or lesser than the looked-at value.*
