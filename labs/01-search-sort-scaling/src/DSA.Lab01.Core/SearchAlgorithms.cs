@@ -38,6 +38,29 @@ namespace DSA.Lab01
             // 3. Return the index if it matches.
             // 4. Otherwise discard either the lower or upper half.
             // 5. Repeat while there is still a valid search range.
+
+
+            int low = 0;
+            int high = sortedValues.Length - 1;
+
+            while (low <= high)
+            {
+                int middle = low + (high - low) / 2;
+                int lookedAtvalue = sortedValues[middle];
+
+                if (target == lookedAtvalue)
+                {
+                    return middle;
+                }
+                else if (target > lookedAtvalue)
+                {
+                    low =  middle + 1;
+                }
+                else if (target < lookedAtvalue)
+                {
+                    high = middle - 1;
+                }
+            }            
             return -1;
         }
     }
